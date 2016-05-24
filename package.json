@@ -1,0 +1,27 @@
+{
+  "name": "trump-transcripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BostonGlobe/trump-transcripts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BostonGlobe/trump-transcripts/issues"
+  },
+  "homepage": "https://github.com/BostonGlobe/trump-transcripts#readme",
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "yargs": "^4.7.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.2"
+  }
+}

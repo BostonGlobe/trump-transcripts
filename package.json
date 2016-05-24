@@ -18,6 +18,7 @@
   "homepage": "https://github.com/BostonGlobe/trump-transcripts#readme",
   "dependencies": {
     "lodash": "^4.13.1",
+    "natural": "^0.4.0",
     "underscore.string": "^3.3.4",
     "yargs": "^4.7.1"
   },

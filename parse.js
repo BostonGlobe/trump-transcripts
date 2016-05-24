@@ -22,7 +22,7 @@ const parse = (text) => {
 
 			return {
 				key: currentKey,
-				value: clean(value.replace(/\[.*\]/g, ''))
+				value: clean(value.replace(/\[.*?\]/g, ''))
 			}
 
 		})

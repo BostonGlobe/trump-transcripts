@@ -1,4 +1,4 @@
-ONE: one two three
+ONE: one two three [applause]four
 
 two three
 

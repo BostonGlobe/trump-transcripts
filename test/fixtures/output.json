@@ -1,42 +1,42 @@
 [
 	{
 		"key": "ONE",
-		"value": [
-			"one two three",
-			"two three",
-			"three"
-		]
-	},
-	{
-		"key": "UNO",
-		"value": [
-			"uno dos tres",
-			"dos: tres",
-			"tres"
-		]
+		"value": "one two three"
 	},
 	{
 		"key": "ONE",
-		"value": [
-			"one two"
-		]
-	},
-	{
-		"key": "UNO",
-		"value": [
-			"uno dos tres"
-		]
-	},
-	{
-		"key": "UNO",
-		"value": [
-			"uno dos tres"
-		]
+		"value": "two three"
 	},
 	{
 		"key": "ONE",
-		"value": [
-			"one two three"
-		]
+		"value": "three"
+	},
+	{
+		"key": "UNO",
+		"value": "uno dos tres"
+	},
+	{
+		"key": "UNO",
+		"value": "dos: tres"
+	},
+	{
+		"key": "UNO",
+		"value": "tres"
+	},
+	{
+		"key": "ONE",
+		"value": "one two"
+	},
+	{
+		"key": "UNO",
+		"value": "uno dos tres"
+	},
+	{
+		"key": "UNO",
+		"value": "uno dos tres"
+	},
+	{
+		"key": "ONE",
+		"value": "one two three"
 	}
 ]

@@ -43,14 +43,28 @@
 }
 
 .trump-wrapper img {
-	float: left;
-	padding-right: 1em;
+	position: absolute;
+	top: 0;
+}
+
+.trump-wrapper .phrases {
+	position: relative;
+	padding-left: 96px;
 }
 
 .trump-wrapper .phrase {
 	font-size: 1.75em;
 	line-height: 1.1em;
 	font-family: 'Miller', Helvetica, Times New Roman, Times, serif;
+}
+
+.trump-wrapper .phrase.master {
+	visibility: hidden;
+}
+
+.trump-wrapper .phrase.typewriter {
+	position: absolute;
+	top: 0;
 }
 
 .trump-wrapper .hide {

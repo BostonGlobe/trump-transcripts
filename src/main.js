@@ -5,6 +5,9 @@ var $ = function (selector) {
 	return document.querySelector(selector);
 }
 
+// TODO: make him vibrate
+// implement enter-view
+
 // typewriter-ify all the quotes
 typewriter.prepare('.typewriter');
 

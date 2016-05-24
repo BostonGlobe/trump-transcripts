@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+		"build": "webpack --progress --colors --watch src/main.js src/bundle.js",
     "test": "mocha test"
   },
   "repository": {
@@ -17,12 +18,15 @@
   },
   "homepage": "https://github.com/BostonGlobe/trump-transcripts#readme",
   "dependencies": {
+    "promis": "^1.1.4",
+    "typewriter-js": "^2.0.0"
+  },
+  "devDependencies": {
     "lodash": "^4.13.1",
     "natural": "^0.4.0",
     "underscore.string": "^3.3.4",
-    "yargs": "^4.7.1"
-  },
-  "devDependencies": {
+    "webpack": "^1.13.1",
+    "yargs": "^4.7.1",
     "chai": "^3.5.0",
     "mocha": "^2.5.2"
   }

@@ -21,16 +21,33 @@ var hasStarted = false;
 
 window.enterView = function(width) {
 
-	// type away
-	typewriter.type('.typewriter._1', { delay: 50 })
-		.then(function() {
+	console.log('child enterView');
 
-			setTimeout(function () {
-				elementClass($('.typewriter._1')).add('hide');
-				elementClass($('.typewriter._2')).remove('hide');
-				return typewriter.type('.typewriter._2', { delay: 50 });
-			}, 1000);
+	// only start typing if we haven't done it yet
+	if (!hasStarted) {
 
-		});
+		// set flag so we don't ever start typing again
+		hasStarted = true;
+
+		// start typing
+		typewriter.type('.typewriter._1', { delay: 50 })
+			.then(function() {
+
+				// wait a little bit, then
+				setTimeout(function () {
+
+					// hide the previous phrase
+					elementClass($('.typewriter._1')).add('hide');
+
+					// show the next phrase
+					elementClass($('.typewriter._2')).remove('hide');
+
+					// start typing the next phrase and return the promise
+					return typewriter.type('.typewriter._2', { delay: 50 });
+				}, 1000);
+
+			});
+
+	}
 
 }

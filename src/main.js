@@ -5,11 +5,9 @@ var $ = function (selector) {
 	return document.querySelector(selector);
 }
 
-// TODO: make him vibrate
 // publish
 // test on various phones
 // tell producers of bottom content
-// show to tonia
 
 // typewriter-ify all the quotes
 typewriter.prepare('.typewriter');
@@ -19,29 +17,17 @@ elementClass($('.typewriter._1')).remove('hide');
 
 var hasStarted = false;
 
-var currentPhraseIndex = 0;
+var indices = [];
 
-function showNextPhrase() {
+for (var i = 1; i < 28; i++) {
 
-	// hide the current phrase
-	elementClass($('.typewriter._' + (currentPhraseIndex + 1))).add('hide');
-
-	// update currentPhraseIndex
-	currentPhraseIndex = currentPhraseIndex + 1;
-
-	var currentPhraseSelector = '.typewriter._' + (currentPhraseIndex + 1);
-
-	// show the next phrase
-	elementClass($(currentPhraseSelector)).remove('hide');
-
-	// start typing the next phrase and return the promise
-	return typewriter.type(currentPhraseSelector, { delay: 50 });
+	indices.push(i);
 
 }
 
-window.enterView = function(width) {
+var DELAY = 50;
 
-	console.log('child enterView');
+window.enterView = function(width) {
 
 	// only start typing if we haven't done it yet
 	if (!hasStarted) {
@@ -50,23 +36,38 @@ window.enterView = function(width) {
 		hasStarted = true;
 
 		// start typing
-		typewriter.type('.typewriter._1', { delay: 50 })
+		typewriter.type('.typewriter._1', { delay: DELAY })
 			.then(function(param) {
 
-				console.log(param);
+				return indices.reduce(function(sequence, index) {
 
-				// wait a little bit, then
-				setTimeout(function () {
+					return sequence.then(function() {
 
-					// hide the previous phrase
-					elementClass($('.typewriter._1')).add('hide');
+							elementClass($('.trump-wrapper img')).remove('vibrate-left');
+							elementClass($('.trump-wrapper img')).remove('vibrate-right');
 
-					// show the next phrase
-					elementClass($('.typewriter._2')).remove('hide');
+						if (index % 2 === 0) {
+							elementClass($('.trump-wrapper img')).add('vibrate-left');
+						} else {
+							elementClass($('.trump-wrapper img')).add('vibrate-right');
+						}
 
-					// start typing the next phrase and return the promise
-					return typewriter.type('.typewriter._2', { delay: 50 });
-				}, 1000);
+						// hide the current phrase
+						elementClass($('.typewriter._' + index)).add('hide');
+
+						// set the current phrase selector
+						var nextPhraseSelector = '.typewriter._' + (index + 1);
+
+						// show the next phrase
+						elementClass($(nextPhraseSelector)).remove('hide');
+
+						// start typing the next phrase and return the promise
+						return typewriter.type(nextPhraseSelector, { delay: DELAY });
+
+					});
+
+
+				}, Promise.resolve());
 
 			});
 

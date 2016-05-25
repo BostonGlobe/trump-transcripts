@@ -47,14 +47,15 @@
 			pymParent = new pym.Parent('${storyID}-1', src, {});
 			pymParent.onMessage('height-request', function(msg) { pymParent.sendMessage('height-send', window.innerHeight); });
 
-			enterView({
-				selector: '#${storyID}-1',
-				offset: '50%',
-				trigger: function() {
-					pymParent.sendMessage('enter-view', true);
-				}
-			});
-
+			pymParent.onMessage('ready', function() {
+				enterView({
+					selector: '#${storyID}-1',
+					offset: '50%',
+					trigger: function() {
+						pymParent.sendMessage('enter-view', true);
+					}
+				});
+			})
 		}
 	})();
 </script>

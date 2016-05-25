@@ -23,7 +23,7 @@
 /* =========================== */
 
 /* Serif headline */
-/* font-family: 'Miller', Helvetica, Times New Roman, Times, serif;* /
+/* font-family: 'Miller', Georgia, Times New Roman, Times, serif;* /
 
 /* Sans-serif headline */
 /* font-family: 'Benton', Helvetica, Arial, sans-serif; */
@@ -99,6 +99,7 @@
 .trump-wrapper {
 	width: 100%;
 	overflow: hidden;
+  min-height: 80px;
 }
 
 .trump-wrapper img.vibrate-left {
@@ -128,7 +129,7 @@
 .trump-wrapper .phrase {
 	font-size: 1.75em;
 	line-height: 1.1em;
-	font-family: 'Miller', Helvetica, Times New Roman, Times, serif;
+	font-family: 'Miller', Georgia, Times New Roman, Times, serif;
 }
 
 .trump-wrapper .phrase.master {

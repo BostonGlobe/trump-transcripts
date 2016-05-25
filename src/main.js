@@ -19,6 +19,26 @@ elementClass($('.typewriter._1')).remove('hide');
 
 var hasStarted = false;
 
+var currentPhraseIndex = 0;
+
+function showNextPhrase() {
+
+	// hide the current phrase
+	elementClass($('.typewriter._' + (currentPhraseIndex + 1))).add('hide');
+
+	// update currentPhraseIndex
+	currentPhraseIndex = currentPhraseIndex + 1;
+
+	var currentPhraseSelector = '.typewriter._' + (currentPhraseIndex + 1);
+
+	// show the next phrase
+	elementClass($(currentPhraseSelector)).remove('hide');
+
+	// start typing the next phrase and return the promise
+	return typewriter.type(currentPhraseSelector, { delay: 50 });
+
+}
+
 window.enterView = function(width) {
 
 	console.log('child enterView');
@@ -31,7 +51,9 @@ window.enterView = function(width) {
 
 		// start typing
 		typewriter.type('.typewriter._1', { delay: 50 })
-			.then(function() {
+			.then(function(param) {
+
+				console.log(param);
 
 				// wait a little bit, then
 				setTimeout(function () {

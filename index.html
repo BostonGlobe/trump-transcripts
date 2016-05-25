@@ -40,14 +40,17 @@
 					var pymParent = new pym.Parent('globe-graphic-iframe-1', './src/index.html', {});
 					pymParent.onMessage('height-request', function(msg) { pymParent.sendMessage('height-send', window.innerHeight); });
 
-					enterView({
-						selector: '#globe-graphic-iframe-1',
-						offset: '50%',
-						trigger: function() {
-							console.log('parent entered view');
-							pymParent.sendMessage('enter-view', true);
-						}
-					});
+					pymParent.onMessage('ready', function() {
+						enterView({
+							selector: '#globe-graphic-iframe-1',
+							offset: '50%',
+							trigger: function() {
+								console.log('parent entered view');
+								pymParent.sendMessage('enter-view', true);
+							}
+						});	
+					})
+					
 
 				})();
 			</script>

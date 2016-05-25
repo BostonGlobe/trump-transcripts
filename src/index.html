@@ -122,7 +122,8 @@
                 var js = 'bundle.js?v=' + timestamp;
                 loadJS(js, function() {
                     window.pymChild = pym.Child({ renderCallback: window.onResize, polling: true });
-										pymChild.onMessage('enter-view', window.enterView);
+					pymChild.onMessage('enter-view', window.enterView);
+                    pymChild.sendMessage('ready', true);
                 });
             })()
         </script>

@@ -3,7 +3,8 @@
 
 <!-- (BEGIN) globe graphic iframe -->
 <div id='${storyID}-1' class='globe-graphic-iframe' style='margin: 20px 0;'></div>
-<script src='https://apps.bostonglobe.com/common/js/pym/pym-poll.min.js' type='text/javascript'></script>
+<script src='//apps.bostonglobe.com/common/js/enter-view/enter-view-0.1.0.min.js' type='text/javascript'></script>
+<script src='//apps.bostonglobe.com/common/js/pym/pym-poll.min.js' type='text/javascript'></script>
 <script>
     (function() {
 		var getSource = function() {
@@ -26,7 +27,7 @@
 				var version = '?v=' + Date.now();
 				path = path.substring(0, path.lastIndexOf('/'));
 				if(window.location.hostname.indexOf('prdedit') > -1) {
-					return 'http://prdedit.bostonglobe.com/r' + path + '/index.html' + version;
+					return '//prdedit.bostonglobe.com/r' + path + '/index.html' + version;
 				} else {
 					var content = 'Content/';
 					var webgraphics = '/WebGraphics/';
@@ -34,7 +35,7 @@
 					var right = path.indexOf(webgraphics);
 					var section = path.substring(left, right);
 					var end = path.substring(right + webgraphics.length, path.length);
-					return 'https://c.o0bg.com/rw/Boston/2011-2020/WebGraphics/' + section + '/BostonGlobe.com/' + end + '/index.html' + version;
+					return '//c.o0bg.com/rw/Boston/2011-2020/WebGraphics/' + section + '/BostonGlobe.com/' + end + '/index.html' + version;
 				}
 			}
 		};
@@ -45,6 +46,15 @@
 		if(src) {
 			pymParent = new pym.Parent('${storyID}-1', src, {});
 			pymParent.onMessage('height-request', function(msg) { pymParent.sendMessage('height-send', window.innerHeight); });
+
+			enterView({
+				selector: '#${storyID}-1',
+				offset: '50%',
+				trigger: function() {
+					pymParent.sendMessage('enter-view', true);
+				}
+			});
+
 		}
 	})();
 </script>
